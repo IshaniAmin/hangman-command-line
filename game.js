@@ -1,7 +1,7 @@
 var inquirer = require('inquirer')
 var Word = require('./Word.js');
 
-var animals = ['dog', 'cat', 'parrot', 'hamster', 'fish'];
+var animals = ['dog', 'cat', 'parrot', 'hamster', 'fish', 'monkey', 'elephant'];
 
 var wordToPlay = animals[Math.floor(Math.random()*animals.length)];
 
