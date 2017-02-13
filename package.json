@@ -1,0 +1,22 @@
+{
+  "name": "hangman-command-line",
+  "version": "1.0.0",
+  "description": "Hangman on the command line",
+  "main": "Letter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IshaniAmin/hangman-command-line.git"
+  },
+  "author": "Ishani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IshaniAmin/hangman-command-line/issues"
+  },
+  "homepage": "https://github.com/IshaniAmin/hangman-command-line#readme",
+  "dependencies": {
+    "inquirer": "^3.0.1"
+  }
+}
