@@ -5,9 +5,11 @@ var animals = ['dog', 'cat', 'parrot', 'hamster', 'fish', 'monkey', 'elephant'];
 
 var wordToPlay = animals[Math.floor(Math.random()*animals.length)];
 
+var guesses = 5;
+
 var wordObject = new Word(wordToPlay);
 wordObject.makeAndPushLettersIntoWord();
-console.log(wordObject.display());
+console.log(guesses + " guesses left " + wordObject.display());
 
 function askLetter(){
     inquirer.prompt([
@@ -18,13 +20,24 @@ function askLetter(){
     ]).then(function(data){
         if (data.guess != 'restart') {
             wordObject.updateLetter(data.guess);
-            console.log(wordObject.display());
+            console.log(guesses + " guesses left " + wordObject.display());
+            guesses--;
             askLetter();
         } else if (data.guess == 'restart') {
+            guesses = 5;
             wordObject = new Word(animals[Math.floor(Math.random()*animals.length)])
             wordObject.makeAndPushLettersIntoWord();
             wordObject.updateLetter(data.guess);
-            console.log(wordObject.display());
+            console.log(guesses + " guesses left " + wordObject.display());
+            askLetter();
+        }
+
+        if (guesses == 0) {
+            guesses = 5;
+            wordObject = new Word(animals[Math.floor(Math.random()*animals.length)])
+            wordObject.makeAndPushLettersIntoWord();
+            wordObject.updateLetter(data.guess);
+            console.log(guesses + " guesses left " + wordObject.display());
             askLetter();
         }
 
