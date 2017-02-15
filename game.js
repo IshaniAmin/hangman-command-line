@@ -12,7 +12,7 @@ var guesses = 4;
 // displays when game begins
 var wordObject = new Word(wordToPlay);
 wordObject.makeAndPushLettersIntoWord();
-console.log("Here is your word to guess, you have 5 guesses.");
+console.log("Here is your word to guess, you have 5 guesses to guess the word.");
 console.log(wordObject.display());
 
 function askLetter(){
@@ -29,9 +29,10 @@ function askLetter(){
             guesses--;
             askLetter();
 
-            if (guesses == 0) {
+            if (guesses == 0 && Letter.found == false) {
                 guesses = 5;
-                wordObject = new Word(animals[Math.floor(Math.random()*animals.length)])
+                wordToPlay = animals[Math.floor(Math.random()*animals.length)];
+                wordObject = new Word(wordToPlay);
                 wordObject.makeAndPushLettersIntoWord();
                 wordObject.updateLetter(data.guess);
                 console.log(" ");
